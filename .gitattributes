@@ -1,9 +1,15 @@
-# Ignore entire frontend from language stats
-frontend/** linguist-detectable=false
+# Ignore heavy UI logic (large JSX components)
+frontend/src/components/** linguist-generated=true
 
-# But still keep important config files visible
-frontend/package.json linguist-detectable=true
-frontend/package-lock.json linguist-detectable=true
+# Ignore build & dependencies
+frontend/node_modules/** linguist-generated=true
+frontend/dist/** linguist-generated=true
 
-# Ensure backend counted
+# Keep main frontend files counted
+frontend/src/main.jsx linguist-detectable=true
+frontend/src/App.jsx linguist-detectable=true
+frontend/index.html linguist-detectable=true
+frontend/src/index.css linguist-detectable=true
+
+# Ensure backend counted fully
 backend/**/*.py linguist-detectable=true
