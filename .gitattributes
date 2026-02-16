@@ -1,12 +1,9 @@
-# Ignore frontend build influence on language stats
-frontend/dist/* linguist-generated=true
-frontend/node_modules/* linguist-generated=true
+# Ignore entire frontend from language stats
+frontend/** linguist-detectable=false
 
-# Treat UI as documentation (not primary logic)
-frontend/src/* linguist-detectable=false
-frontend/*.html linguist-detectable=false
-frontend/*.css linguist-detectable=false
-frontend/*.js linguist-detectable=false
+# But still keep important config files visible
+frontend/package.json linguist-detectable=true
+frontend/package-lock.json linguist-detectable=true
 
-# Keep backend counted
-backend/*.py linguist-detectable=true
+# Ensure backend counted
+backend/**/*.py linguist-detectable=true
